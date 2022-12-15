@@ -1,0 +1,13 @@
+<?php
+
+	$db=mysqli_connect("localhost","root","","library");  
+					/* server name, username, passwor, database name */
+
+					if (!$db)
+					{
+						die("connection failed:"  . mysql_connection_error());
+					}
+
+					echo "Connection successful."; 
+
+?>
