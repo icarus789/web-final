@@ -1,0 +1,56 @@
+2.
+select em.*s1.grade
+from emp e, salgrade s1
+where em.sal= {select MAX (sal)from emp em where 
+sal<{select MAX(sal)}
+  from emp em} and em.sal between s1.losal and s1.hisal
+
+3.
+select em.mrg, s1.grade,de.dname,em.deptno from emp em, dept de,
+salgrade s1 
+where grade = 2 and em.deptno in (10,20) and em.deptno=de.deptno between 10 and 20
+and em.deptno=e.deptno=d.deptno and e.sal between s.losal and s.hisal
+
+
+4.
+select e.*,s.grade,d.dname
+from emp e,salgrade s, dept d
+where e.deptno=d.deptno
+and e.job='ANALYST'
+and d.dname='FINANCE'
+and e.sal={select MAX(sal)from emp where job= 'ANALYST'}
+
+
+5.
+
+select d.dname,e*
+from emp e dept d
+where e.deptno=deptno
+and hiredate= {select min (hiredate)from emp e}.
+6. selecr ename,job,salgrade from emp,salgrade where emp.sal
+between salgrade.losal and salgrade.hisal and deptno=(select )
+
+7.
+select d,dnam
+from emp e, dept d
+where job = 'SALESMAN'
+group by job
+
+8.
+Select  *
+From emp, dept, salgrade
+Where  emp,deptno  =dept.deptno
+And emp.sal between salgrade.losal and salgrade.hisal and loc in ( ‘CHICAGO’ , ‘DALLAS’)
+And grade in {2,3}
+
+9.
+select *
+  from emp e,
+  salgrade s
+where e.empno in {select mgr from emp } and e.sal between s.losal and s.hisal
+
+11.
+select m.ename,count {*}from emp e, emp where e.mgr = m. empno and e.job= 'ANALYST'
+and e.deptno in {10,20}group by m.ename
+
+
